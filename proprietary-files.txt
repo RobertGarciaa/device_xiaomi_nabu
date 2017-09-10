@@ -284,6 +284,10 @@ vendor/etc/init/init.batterysecret.rc
 vendor/etc/qdcm_calib_data_xiaomi_36_02_0b_video_mode_dual_dsi_cphy_panel.xml
 vendor/etc/qdcm_calib_data_xiaomi_42_02_0a_video_mode_dual_dsi_cphy_panel.xml
 
+# Display Feature
+system/lib/vendor.xiaomi.hardware.displayfeature@1.0.so;MODULE_SUFFIX=-system
+system/lib64/vendor.xiaomi.hardware.displayfeature@1.0.so;MODULE_SUFFIX=-system
+
 # Graphics (Adreno firmware)
 vendor/firmware/a612_rgmu.bin
 vendor/firmware/a618_gmu.bin
