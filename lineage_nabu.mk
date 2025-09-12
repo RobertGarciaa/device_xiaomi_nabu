@@ -14,6 +14,11 @@ $(call inherit-product, vendor/lineage/config/common_full_tablet_wifionly.mk)
 # Inherit from nabu device
 $(call inherit-product, device/xiaomi/nabu/device.mk)
 
+# Call mindthegapps
+$(call inherit-product, vendor/gapps/arm64/arm64-vendor.mk)
+ 
+WITH_GAPPS := true
+
 PRODUCT_NAME := lineage_nabu
 PRODUCT_DEVICE := nabu
 PRODUCT_MANUFACTURER := Xiaomi
