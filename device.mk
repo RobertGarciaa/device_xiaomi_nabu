@@ -28,6 +28,9 @@ PRODUCT_PACKAGES += \
     libmegface \
     libpiex_shim
 
+# Init
+$(call soong_config_set,libinit,vendor_init_lib,//$(LOCAL_PATH):init_xiaomi_nabu)
+
 # Overlays
 PRODUCT_PACKAGES += \
     FrameworkResOverlayDevice \

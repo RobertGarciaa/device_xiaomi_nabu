@@ -12,6 +12,9 @@ DEVICE_PATH := device/xiaomi/nabu
 # Display
 TARGET_SCREEN_DENSITY := 340
 
+# Init
+TARGET_RECOVERY_DEVICE_MODULES := init_xiaomi_nabu
+
 # Kernel
 TARGET_KERNEL_CONFIG += vendor/xiaomi/nabu.config
 
