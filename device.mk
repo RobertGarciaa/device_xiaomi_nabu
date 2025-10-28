@@ -29,7 +29,7 @@ PRODUCT_PACKAGES += \
     libpiex_shim
 
 # Init
-$(call soong_config_set,libinit,vendor_init_lib,//$(LOCAL_PATH):init_xiaomi_nabu)
+$(call soong_config_set,xiaomi_msmnile,variant_lib,//$(LOCAL_PATH):libvariant_xiaomi_nabu)
 
 # Overlays
 PRODUCT_PACKAGES += \
