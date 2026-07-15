@@ -18,6 +18,7 @@ $(call inherit-product, device/xiaomi/nabu/device.mk)
 $(call inherit-product, vendor/gapps/arm64/arm64-vendor.mk)
  
 WITH_GAPPS := true
+TARGET_DISABLE_MATLOG := true
 
 PRODUCT_NAME := lineage_nabu
 PRODUCT_DEVICE := nabu
