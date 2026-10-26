@@ -29,3 +29,9 @@ TARGET_ENABLE_XIAOMI_DOLBY ?= true
 ifeq ($(TARGET_ENABLE_XIAOMI_DOLBY),true)
 include vendor/xiaomi/dolby-nabu/BoardConfig.mk
 endif
+
+# Pad 5 stock input/OTA HAL policy, independent of Dolby Atmos.
+TARGET_ENABLE_XIAOMI_INPUT ?= true
+ifeq ($(TARGET_ENABLE_XIAOMI_INPUT),true)
+include vendor/xiaomi/dolby-nabu/input/BoardConfig.mk
+endif

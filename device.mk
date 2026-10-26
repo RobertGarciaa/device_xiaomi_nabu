@@ -61,3 +61,9 @@ $(call inherit-product, vendor/xiaomi/nabu/nabu-vendor.mk)
 ifeq ($(TARGET_ENABLE_XIAOMI_DOLBY),true)
 $(call inherit-product, vendor/xiaomi/dolby-nabu/dolby.mk)
 endif
+
+# Pad 5 stock stylus and keyboard settings, with the nabu platform input hooks.
+TARGET_ENABLE_XIAOMI_INPUT ?= true
+ifeq ($(TARGET_ENABLE_XIAOMI_INPUT),true)
+$(call inherit-product, vendor/xiaomi/dolby-nabu/input/input.mk)
+endif
