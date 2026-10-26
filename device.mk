@@ -7,6 +7,9 @@
 TARGET_IS_VAB := true
 TARGET_IS_TABLET := true
 
+# Select before inheriting common audio configs. Set false to build without Dolby.
+TARGET_ENABLE_XIAOMI_DOLBY ?= true
+
 # Inherit from sm8150-common
 $(call inherit-product, device/xiaomi/sm8150-common/msmnile.mk)
 
@@ -53,3 +56,8 @@ PRODUCT_COPY_FILES += \
 
 # Inherit from vendor blobs
 $(call inherit-product, vendor/xiaomi/nabu/nabu-vendor.mk)
+
+# Xiaomi Pad 5 stock Dolby Atmos
+ifeq ($(TARGET_ENABLE_XIAOMI_DOLBY),true)
+$(call inherit-product, vendor/xiaomi/dolby-nabu/dolby.mk)
+endif

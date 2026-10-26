@@ -23,3 +23,9 @@ TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
 
 # Inherit from the proprietary version
 include vendor/xiaomi/nabu/BoardConfigVendor.mk
+
+# Xiaomi Pad 5 stock Dolby Atmos
+TARGET_ENABLE_XIAOMI_DOLBY ?= true
+ifeq ($(TARGET_ENABLE_XIAOMI_DOLBY),true)
+include vendor/xiaomi/dolby-nabu/BoardConfig.mk
+endif
