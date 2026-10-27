@@ -4,19 +4,14 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-# Inherit from sm8150-common
-include device/xiaomi/sm8150-common/BoardConfigCommon.mk
-
 DEVICE_PATH := device/xiaomi/nabu
 
-# Product scope variables that the common BoardConfig also reads.
-#
-# device.mk sets these for the product makefiles, but BoardConfigCommon.mk is
-# evaluated in board scope, where they were previously empty. That silently
-# turned off virtual A/B, the vendor-boot recovery resources and the tablet-only
-# package decisions. Repeat them here so both scopes agree.
+# Set device flags before the common board configuration evaluates them.
 TARGET_IS_VAB := true
 TARGET_IS_TABLET := true
+
+# Inherit from sm8150-common
+include device/xiaomi/sm8150-common/BoardConfigCommon.mk
 
 # Display
 TARGET_SCREEN_DENSITY := 340
