@@ -26,9 +26,10 @@ TARGET_SCREEN_HEIGHT := 2560
 TARGET_SCREEN_WIDTH := 1600
 
 # Camera
+# The stock tree pulled libMegviiFacepp/libmegface from the crDroid vendor tree.
+# PixelOS does not ship those blobs and this port does not use the Megvii face
+# effect, so only libpiex_shim (provided by hardware/lineage/compat) remains.
 PRODUCT_PACKAGES += \
-    libMegviiFacepp-0.5.2 \
-    libmegface \
     libpiex_shim
 
 # Init
@@ -66,4 +67,11 @@ endif
 TARGET_ENABLE_XIAOMI_INPUT ?= true
 ifeq ($(TARGET_ENABLE_XIAOMI_INPUT),true)
 $(call inherit-product, vendor/xiaomi/dolby-nabu/input/input.mk)
+endif
+
+# Stock Xiaomi apps ported from the Pad 9 Pro: Notes, Creation, WPS for Pad.
+# Set TARGET_ENABLE_XIAOMI_APPS=false to build without them.
+TARGET_ENABLE_XIAOMI_APPS ?= true
+ifeq ($(TARGET_ENABLE_XIAOMI_APPS),true)
+$(call inherit-product, vendor/xiaomi/apps-nabu/apps.mk)
 endif

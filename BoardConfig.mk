@@ -9,6 +9,15 @@ include device/xiaomi/sm8150-common/BoardConfigCommon.mk
 
 DEVICE_PATH := device/xiaomi/nabu
 
+# Product scope variables that the common BoardConfig also reads.
+#
+# device.mk sets these for the product makefiles, but BoardConfigCommon.mk is
+# evaluated in board scope, where they were previously empty. That silently
+# turned off virtual A/B, the vendor-boot recovery resources and the tablet-only
+# package decisions. Repeat them here so both scopes agree.
+TARGET_IS_VAB := true
+TARGET_IS_TABLET := true
+
 # Display
 TARGET_SCREEN_DENSITY := 340
 
@@ -34,4 +43,10 @@ endif
 TARGET_ENABLE_XIAOMI_INPUT ?= true
 ifeq ($(TARGET_ENABLE_XIAOMI_INPUT),true)
 include vendor/xiaomi/dolby-nabu/input/BoardConfig.mk
+endif
+
+# Stock Xiaomi apps (Notes, Creation, WPS for Pad).
+TARGET_ENABLE_XIAOMI_APPS ?= true
+ifeq ($(TARGET_ENABLE_XIAOMI_APPS),true)
+include vendor/xiaomi/apps-nabu/BoardConfig.mk
 endif
